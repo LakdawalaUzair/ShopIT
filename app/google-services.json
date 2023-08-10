@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "190999360259",
+    "project_id": "shopit-ba3f1",
+    "storage_bucket": "shopit-ba3f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190999360259:android:22c6d9d05349d5395def36",
+        "android_client_info": {
+          "package_name": "com.example.shopit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190999360259-172kpvvjnm6rnkbkkecc8obtupdp1lv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU2MofgeC6zjGeU0pxEZ2xs-ggVG7LrdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190999360259-172kpvvjnm6rnkbkkecc8obtupdp1lv5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

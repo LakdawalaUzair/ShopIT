@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".Login">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textemail"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:textColorHint="#FBFBFB"
+        app:boxStrokeColor="#FBFBFB"
+        app:hintTextColor="#FBFBFB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.337"
+        app:passwordToggleTint="#7A7070">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/logemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:drawablePadding="12dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:ems="10"
+            android:maxLength="35"
+            android:textColor="#FBFBFB"
+            android:textColorHighlight="#FBFBFB"
+            android:textColorHint="#7A7070"
+            android:textColorLink="#FBFBFB" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textpassword"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:textColorHint="#FBFBFB"
+        app:boxStrokeColor="#FBFBFB"
+        app:hintTextColor="#FBFBFB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textemail"
+        app:layout_constraintVertical_bias="0.02"
+        app:passwordToggleTint="#7A7070">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/logpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:drawablePadding="12dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:maxLength="10"
+            android:textColor="#FBFBFB"
+            android:textColorHighlight="#FBFBFB"
+            android:textColorHint="#7A7070"
+            android:textColorLink="#FBFBFB" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/logbtn"
+        android:layout_width="125dp"
+        android:layout_height="46dp"
+        android:background="@drawable/custom_input"
+        android:text="Log In"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FBFBFB"
+        android:textColorLink="#FBFBFB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textpassword"
+        app:layout_constraintVertical_bias="0.48" />
+
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="65dp"
+        android:layout_height="20dp"
+        android:text="Sign Up"
+        android:textColor="#435BDF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logbtn"
+        app:layout_constraintVertical_bias="0.486" />
+
+    <TextView
+        android:id="@+id/sumsg"
+        android:layout_width="175dp"
+        android:layout_height="20dp"
+        android:text="Don't have an account ?"
+        android:textColor="#CEB5BD57"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logbtn"
+        app:layout_constraintVertical_bias="0.486" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

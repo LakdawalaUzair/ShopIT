@@ -3,6 +3,7 @@ package com.example.shopit
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.shopit.databinding.ActivityRegistrationBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -20,36 +21,39 @@ class Registration : AppCompatActivity() {
 
         binding.nextbtn.setOnClickListener{
             signupUser()
-            startActivity(Intent(this,Login::class.java))
         }
         binding.login.setOnClickListener{
             startActivity(Intent(this,Login::class.java))
         }
     }
 
-    private fun signupUser(){
+    private fun signupUser() {
         val name = binding.etName.text.toString()
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
 
-        if (name.isBlank() || email.isBlank() || password.isBlank()) {
-            Toast.makeText(this,"Enter an email or password", Toast.LENGTH_SHORT).show()
-            return
+        if(name.isEmpty()) {
+            binding.etName.error = "Field can't be blank."
+        }else if (email.isEmpty() ){
+            binding.etEmail.error = "Field can't be blank."
+        }else if(password.isEmpty()) {
+            binding.etPassword.error = "Field can't be blank."
+        }else{
+            signUp(email, password, name)
         }
+    }
 
-        if(email != password) {
-            Toast.makeText(this,"Incorrect password", Toast.LENGTH_SHORT).show()
-            return
-        }
+    private fun signUp(email: String, password: String, name: String) {
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+                UserModel(name, email, password)
+                startActivity(Intent(this@Registration, Login::class.java))
+                Toast.makeText(this, "Registration Successfull", Toast.LENGTH_SHORT).show()
+            }
 
-        firebaseAuth.createUserWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this) {
-                if(it.isSuccessful){
-                    Toast.makeText(this,"Login Successful",Toast.LENGTH_SHORT).show()
-                }
-                else{
-                    Toast.makeText(this,"Error creating user",Toast.LENGTH_SHORT).show()
-                }
+            .addOnFailureListener { it ->
+                Log.d("Registration", it.message.toString())
+                Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
             }
     }
 }

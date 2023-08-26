@@ -18,36 +18,50 @@ class Login : AppCompatActivity() {
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        //Initialize the UI
-        initUI()
-    }
-    private fun initUI() {
+        checkUserLoginOrNot()
+
         binding.logbtn.setOnClickListener{
             login()
-            startActivity(Intent(this,MainActivity::class.java))
         }
 
         binding.signup.setOnClickListener{
             startActivity(Intent(this,Registration::class.java))
+        }
+
+
+        if(firebaseAuth.currentUser != null){
+            startActivity(Intent(this,MainActivity::class.java))
+
+        }
+    }
+
+    private fun checkUserLoginOrNot() {
+        if(firebaseAuth.currentUser != null){
+            startActivity(Intent(this,MainActivity::class.java))
         }
     }
     private fun login(){
         val email = binding.logemail.text.toString()
         val password = binding.logpassword.text.toString()
 
-        if (email.isBlank() || password.isBlank()){
-            Toast.makeText(this,"Enter an email or password",Toast.LENGTH_SHORT).show()
-            return
+        if (email.isEmpty() ){
+            binding.logemail.error = "Field can't be blank."
+        }else if(password.isEmpty()){
+            binding.logpassword.error = "Field can't be blank."
+        }else {
+            signIn(email, password)
         }
+    }
 
+
+    private fun signIn(email: String, password: String) {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
-                if (it.isSuccessful){
-                    //code
-                }
-                else{
-                    Toast.makeText(this,"Wrong Password",Toast.LENGTH_SHORT).show()
-                }
+                startActivity(Intent(this, MainActivity::class.java))
+                Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "User not Found", Toast.LENGTH_SHORT).show()
             }
     }
 }

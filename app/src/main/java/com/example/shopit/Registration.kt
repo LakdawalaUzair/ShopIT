@@ -48,7 +48,7 @@ class Registration : AppCompatActivity() {
             .addOnSuccessListener {
                 UserModel(name, email, password)
                 startActivity(Intent(this@Registration, Login::class.java))
-                Toast.makeText(this, "Registration Successfull", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "Registration Successfull", Toast.LENGTH_SHORT).show()
             }
 
             .addOnFailureListener { it ->

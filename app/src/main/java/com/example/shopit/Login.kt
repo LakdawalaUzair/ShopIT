@@ -56,12 +56,12 @@ class Login : AppCompatActivity() {
 
     private fun signIn(email: String, password: String) {
         firebaseAuth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) {
+            .addOnSuccessListener {
                 startActivity(Intent(this, MainActivity::class.java))
-                Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "User not Found", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show()
             }
     }
 }

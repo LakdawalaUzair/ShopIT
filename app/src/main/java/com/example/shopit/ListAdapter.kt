@@ -33,7 +33,7 @@ class ListAdapter(
         holder.proImage.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra("image", proName[position])
-            Log.d("tufel", "Product name: ${proName[position]}")
+            //Log.d("tufel", "Product name: ${proName[position]}")
             context.startActivity(intent)
         }
     }

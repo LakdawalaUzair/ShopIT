@@ -5,4 +5,4 @@ data class AddProductModel (
     val proImage : String,
     val proPrice : String,
     val proDes : String,
-    )
+)

@@ -7,86 +7,70 @@
     android:background="@drawable/login"
     tools:context=".Login">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textemail"
+    <EditText
+        android:id="@+id/logemail"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:textColorHint="#FBFBFB"
-        app:boxStrokeColor="#FBFBFB"
-        app:hintTextColor="#FBFBFB"
+        android:layout_height="50dp"
+        android:drawablePadding="12dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:ems="10"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ic_email"
+        android:hint="Email"
+        android:maxLength="40"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337"
-        app:passwordToggleTint="#7A7070">
+        app:layout_constraintVertical_bias="0.358" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/logemail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:drawablePadding="12dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:ems="10"
-            android:maxLength="40"
-            android:textColor="#FBFBFB"
-            android:textColorHighlight="#FBFBFB"
-            android:textColorHint="#7A7070"
-            android:textColorLink="#FBFBFB" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textpassword"
+    <EditText
+        android:id="@+id/logpassword"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:textColorHint="#FBFBFB"
-        app:boxStrokeColor="#FBFBFB"
-        app:hintTextColor="#FBFBFB"
+        android:layout_height="50dp"
+        android:drawablePadding="12dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:ems="10"
+        android:maxLength="10"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ic_lock"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textemail"
-        app:layout_constraintVertical_bias="0.02"
-        app:passwordToggleTint="#7A7070">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/logpassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:drawablePadding="12dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:maxLength="10"
-            android:textColor="#FBFBFB"
-            android:textColorHighlight="#FBFBFB"
-            android:textColorHint="#7A7070"
-            android:textColorLink="#FBFBFB" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.469" />
 
     <Button
         android:id="@+id/logbtn"
         android:layout_width="125dp"
-        android:layout_height="46dp"
+        android:layout_height="45dp"
         android:background="@drawable/custom_input"
-        android:text="Log In"
+        android:backgroundTint="#101132"
+        android:text="login"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textColorHighlight="#FBFBFB"
-        android:textColorLink="#FBFBFB"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textpassword"
-        app:layout_constraintVertical_bias="0.48" />
+        app:layout_constraintTop_toBottomOf="@+id/logpassword"
+        app:layout_constraintVertical_bias="0.522" />
 
     <TextView
         android:id="@+id/signup"
@@ -98,10 +82,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logbtn"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintVertical_bias="0.404" />
 
     <TextView
         android:id="@+id/sumsg"
@@ -112,9 +96,9 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintHorizontal_bias="0.351"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logbtn"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintVertical_bias="0.404" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

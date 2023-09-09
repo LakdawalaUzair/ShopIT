@@ -1,7 +1,10 @@
 package com.example.shopit
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shopit.databinding.ActivityListBinding
@@ -9,10 +12,27 @@ import java.lang.Exception
 
 class ListActivity : AppCompatActivity() {
     private lateinit var binding : ActivityListBinding
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val menuInflater = menuInflater
+        menuInflater.inflate(R.menu.menu,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.dots->{
+                startActivity(Intent(this,AddToCart::class.java))
+
+            }
+        }
+        return true
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val productName = intent.getStringExtra("name")
 //        Toast.makeText(this@ListActivity,"Product  name :  $productName",Toast.LENGTH_SHORT).show()
 

@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -18,14 +17,29 @@
         android:theme="@style/Theme.ShopIT"
         tools:targetApi="31">
         <activity
-            android:name=".admin.AdminActivity"
-            android:exported="false" />
+            android:name=".AdminActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AddToCart"
+            android:exported="false"
+            android:label="History"
+            android:parentActivityName=".AddToCart" />
         <activity
             android:name=".DetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Description"
+            android:parentActivityName=".DetailActivity" />
         <activity
             android:name=".ListActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Category's List"
+            android:parentActivityName=".ListActivity" />
         <activity
             android:name=".Registration"
             android:exported="false" />
@@ -33,16 +47,11 @@
             android:name=".Login"
             android:exported="true">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Category's" />
     </application>
 
 </manifest>

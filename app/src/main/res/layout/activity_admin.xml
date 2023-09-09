@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.AdminActivity">
+    tools:context=".AdminActivity">
 
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_height="188dp"
         android:layout_marginTop="52dp"
         android:background="@drawable/baseline_add_to_photos_24"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="parent"

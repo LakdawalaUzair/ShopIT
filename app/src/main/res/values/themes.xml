@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.ShopIT" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.ShopIT" parent="Theme.AppCompat">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#191B45</item>
+        <item name="colorPrimary">#352F44</item>
         <item name="colorPrimaryVariant">#E2C799</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

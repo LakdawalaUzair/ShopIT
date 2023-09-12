@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId){
             R.id.dots->{
                 startActivity(Intent(this,AddToCart::class.java))
-
             }
         }
         return true
@@ -60,7 +59,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val productList: List<ProductModel> = createProductList()
-
         binding.mainRecyclerView.adapter = ProductAdapter(this@MainActivity, productList)
         binding.mainRecyclerView.layoutManager = GridLayoutManager(this@MainActivity, 2)
     }

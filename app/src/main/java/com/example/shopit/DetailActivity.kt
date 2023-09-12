@@ -37,7 +37,7 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val data = intent.getStringExtra("image")
+        val productImage = intent.getStringExtra("image")
 
         binding.atcbtn.setOnClickListener {
             saveDataToDB()

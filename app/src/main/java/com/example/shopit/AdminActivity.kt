@@ -14,6 +14,7 @@ import com.example.shopit.admin.AddProductModel
 import com.example.shopit.databinding.ActivityAdminBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import kotlin.random.Random
 
 class AdminActivity : AppCompatActivity() {
@@ -24,8 +25,16 @@ class AdminActivity : AppCompatActivity() {
     private lateinit var selectedCategory: String
 
     val categories = arrayOf(
-        "Laptop", "Charger", "Desktop Monitor", "Desktop", "Mouse", "Keyboard",
-        "Printer", "Motherboard", "Anti-Virus", "Router Switches"
+        "Laptop",
+        "Charger",
+        "Desktop Monitor",
+        "Desktop",
+        "Mouse",
+        "Keyboard",
+        "Printer",
+        "Motherboard",
+        "Anti-Virus",
+        "Router Switches"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +49,10 @@ class AdminActivity : AppCompatActivity() {
         }
 
         val adapter = ArrayAdapter(this, R.layout.simple_spinner_item, categories)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
         binding.proCategory.adapter = adapter
+
+        binding.btnShowData.setOnClickListener { startActivity(Intent(this@AdminActivity,MainActivity::class.java)) }
 
         binding.proCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -77,25 +88,7 @@ class AdminActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveData2Database(
-        proName: String,
-        proPrice: String,
-        proDes: String,
-        imgUri: Uri,
-        selectedCategory: String
-    ) {
-        auth = FirebaseAuth.getInstance()
-        val randomNumber = Random.nextInt(1000) + 1 // Generate a random number between 1 and 1000
-        val product = AddProductModel(proName, imgUri.toString(), proPrice, proDes)
-        db.getReference("Products").child(selectedCategory).child(randomNumber.toString())
-            .setValue(product)
-            .addOnSuccessListener {
-                Toast.makeText(this@AdminActivity, "Product Added Successfully...", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {
-                Toast.makeText(this@AdminActivity, "Error: " + it.message.toString(), Toast.LENGTH_SHORT).show()
-            }
-    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -107,5 +100,39 @@ class AdminActivity : AppCompatActivity() {
                 Toast.makeText(this@AdminActivity, "No image selected", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    private fun saveData2Database(
+        proName: String,
+        proPrice: String,
+        proDes: String,
+        imgUri: Uri,
+        selectedCategory: String
+    ){
+        val auth = FirebaseAuth.getInstance()
+        val randomNumber = Random.nextInt(1000) + 1 // Generate a random number between 1 and 1000
+        val storage = FirebaseStorage.getInstance().reference
+        val productsRef = storage.child("Products").child(selectedCategory).child(randomNumber.toString())
+
+        productsRef.putFile(imgUri)
+            .addOnSuccessListener { uploadTask ->
+                // Get the download URL for the uploaded image
+                productsRef.downloadUrl.addOnSuccessListener { uri ->
+                    val product = AddProductModel(proName, uri.toString(), proPrice, proDes)
+                    val databaseRef = FirebaseDatabase.getInstance().getReference("Products").child(selectedCategory).child(randomNumber.toString())
+
+                    databaseRef.setValue(product)
+                        .addOnSuccessListener {
+                            Toast.makeText(this@AdminActivity, "Product Added Successfully...", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener { exception ->
+                            Toast.makeText(this@AdminActivity, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        }
+                }
+            }
+            .addOnFailureListener {
+
+            }
+
+
     }
 }

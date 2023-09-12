@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class ListAdapter(
     private val context: Context,
-    private val proImage: List<Int>,
-    private val proName: List<String>,
-    private val productPrice: List<String>
+    private val productList : List<ProductModel>,
 ) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -22,18 +21,17 @@ class ListAdapter(
         return ListViewHolder(layout)
     }
 
-    override fun getItemCount() = proName.size
+    override fun getItemCount() = productList.size
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        holder.proName.text = proName[position]
-        holder.proPrice.text = productPrice[position]
-        holder.proImage.setImageResource(proImage[position])
-
+        val data = productList[position]
+        holder.proName.text = data.proName
+        holder.proPrice.text = data.proPrice
+        Glide.with(context).load(data.proImage).into(holder.proImage)
 
         holder.proImage.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra("image", proName[position])
-            //Log.d("tufel", "Product name: ${proName[position]}")
+            intent.putExtra("image", data.proImage)
             context.startActivity(intent)
         }
     }

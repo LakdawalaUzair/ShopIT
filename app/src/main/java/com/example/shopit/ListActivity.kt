@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.shopit.admin.AddProductModel
 import com.example.shopit.databinding.ActivityListBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -44,24 +45,27 @@ class ListActivity : AppCompatActivity() {
 
 
     private fun getDataFromFirebase(productName: String) {
-        val proList = ArrayList<ProductModel>()
-        val db = FirebaseDatabase.getInstance().reference.child("Products").child(productName)
-        try {
-            db.addValueEventListener(object : ValueEventListener {
+         try {
+            val databaseRef = FirebaseDatabase.getInstance().getReference("Products").child(productName)
+
+            databaseRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
+                    val proList = mutableListOf<AddProductModel>() // Initialize an empty list
+
                     for (i in snapshot.children) {
-                        val produtModel = i.getValue(ProductModel::class.java)
-                        proList.add(produtModel!!)
+                        val productModel = i.getValue(AddProductModel::class.java)
+                        if (productModel != null) {
+                            proList.add(productModel)
+                        }
                     }
                     setRecyclerView(proList)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
-                    Toast.makeText(this@ListActivity,error.message.toString(),Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ListActivity, error.message, Toast.LENGTH_SHORT).show()
                 }
-
             })
+
         }catch (e : Exception){
             Log.d("Tufel",e.message.toString())
             Toast.makeText(this@ListActivity,e.message.toString(),Toast.LENGTH_SHORT).show()
@@ -69,7 +73,7 @@ class ListActivity : AppCompatActivity() {
 
     }
 
-    private fun setRecyclerView(proList: ArrayList<ProductModel>) {
+    private fun setRecyclerView(proList: MutableList<AddProductModel>) {
         binding.listRecyclerView.layoutManager = LinearLayoutManager(this@ListActivity)
         binding.listRecyclerView.adapter =  ListAdapter(this@ListActivity, proList )
 

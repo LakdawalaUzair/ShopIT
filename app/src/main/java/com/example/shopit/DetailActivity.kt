@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.bumptech.glide.Glide
 import com.example.shopit.databinding.ActivityDetailBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -37,7 +38,16 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val productImage = intent.getStringExtra("image")
+        val proName = intent.getStringExtra("name")
+        val proImage =  intent.getStringExtra("img")
+        val proDes = intent.getStringExtra("des")
+        val proPrice = intent.getStringExtra("price")
+
+
+        binding.txtProNameDetail.text = proName
+        Glide.with(this@DetailActivity).load(proImage).into(binding.proImageDetail)
+        binding.txtProPriceDetail.text = proPrice
+        binding.txtDesDet.text = proDes
 
         binding.atcbtn.setOnClickListener {
             saveDataToDB()

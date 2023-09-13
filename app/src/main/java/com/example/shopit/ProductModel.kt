@@ -5,4 +5,7 @@ data class ProductModel(
     val proImage : Int?,
     val proPrice : String?,
     val proDes : String?,
-)
+){
+
+
+}

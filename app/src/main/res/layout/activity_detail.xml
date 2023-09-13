@@ -34,27 +34,33 @@
                 android:layout_gravity="center"
                 android:src="@drawable/logo" />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/upper_corner"
                 android:backgroundTint="@color/main_color"
                 android:minHeight="450dp"
-                android:background="@drawable/upper_corner"
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_gravity="center"
+                    android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="40dp"
                         android:layout_height="5dp"
-                        android:layout_marginTop="30dp"
                         android:layout_gravity="center"
-                        android:backgroundTint="@color/white"
-                        android:background="@drawable/corner" />
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/corner"
+                        android:backgroundTint="@color/white" />
 
                 </LinearLayout>
 
@@ -63,14 +69,31 @@
                     android:id="@+id/txtProNameDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="proname">
+                    android:layout_marginTop="24dp"
+                    android:text="proname"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.09"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
                 </TextView>
+
+
                 <TextView
-                    android:id="@+id/ytxtProPriceDetail"
-                    android:layout_width="match_parent"
+                    android:id="@+id/txtProPriceDetail"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="price">
+                    android:layout_marginRight="20dp"
+                    android:text="price"
+                    android:textColor="@color/white"
+                    android:textSize="19dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/atcbtn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtProNameDetail"
+                    app:layout_constraintVertical_bias="0.032">
 
                 </TextView>
 
@@ -81,23 +104,49 @@
                     android:text="    Description : "
                     android:textColor="@color/white"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtProPriceDetail"
+                    app:layout_constraintVertical_bias="0.065" />
 
+                <TextView
+                    android:id="@+id/txtDesDet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="Des"
+                    app:layout_constraintBottom_toTopOf="@+id/atcbtn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.157"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/desc"
+                    app:layout_constraintVertical_bias="0.125" />
 
                 <Button
                     android:id="@+id/atcbtn"
                     android:layout_width="180dp"
                     android:layout_height="45dp"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/custom_input"
                     android:backgroundTint="#101132"
-                    android:text="Add To Cart" />
+                    android:text="Add To Cart"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent" />
 
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

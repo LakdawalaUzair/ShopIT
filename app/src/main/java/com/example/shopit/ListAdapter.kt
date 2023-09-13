@@ -10,10 +10,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.shopit.admin.AddProductModel
 
 class ListAdapter(
     private val context: Context,
-    private val productList : List<ProductModel>,
+    private val productList : List<AddProductModel>,
 ) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -31,7 +32,10 @@ class ListAdapter(
 
         holder.proImage.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra("image", data.proImage)
+            intent.putExtra("name", data.proName)
+            intent.putExtra("img", data.proImage)
+            intent.putExtra("des", data.proDes)
+            intent.putExtra("price", data.proPrice)
             context.startActivity(intent)
         }
     }

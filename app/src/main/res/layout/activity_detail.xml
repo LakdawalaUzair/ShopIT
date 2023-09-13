@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:text="proname"
-                    android:textColor="@color/white"
+                    android:textColor="#94A684"
                     android:textSize="30dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -84,16 +84,18 @@
 
                 <TextView
                     android:id="@+id/txtProPriceDetail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
+                    android:layout_width="109dp"
+                    android:layout_height="29dp"
                     android:text="price"
-                    android:textColor="@color/white"
-                    android:textSize="19dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/atcbtn"
+                    android:textColor="#94A684"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/atcbtn"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtProNameDetail"
-                    app:layout_constraintVertical_bias="0.032">
+                    app:layout_constraintHorizontal_bias="0.122"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDesDet"
+                    app:layout_constraintVertical_bias="0.74">
 
                 </TextView>
 
@@ -102,15 +104,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="    Description : "
-                    android:textColor="@color/white"
+                    android:textColor="#94A684"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtProPriceDetail"
-                    app:layout_constraintVertical_bias="0.065" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtProNameDetail"
+                    app:layout_constraintVertical_bias="0.098" />
 
                 <TextView
                     android:id="@+id/txtDesDet"
@@ -118,9 +120,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
+                    android:textColor="#94A684"
+                    android:textSize="20dp"
                     android:text="Des"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/atcbtn"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.157"

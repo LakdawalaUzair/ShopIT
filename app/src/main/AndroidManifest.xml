@@ -38,7 +38,7 @@
         <activity
             android:name=".ListActivity"
             android:exported="false"
-            android:label="Category's List"
+            android:label="Products List"
             android:parentActivityName=".ListActivity" />
         <activity
             android:name=".Registration"

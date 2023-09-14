@@ -17,12 +17,15 @@
         android:theme="@style/Theme.ShopIT"
         tools:targetApi="31">
         <activity
+            android:label="Add Products"
             android:name=".AdminActivity"
+            android:parentActivityName=".AdminActivity"
             android:exported="false" />
 
         <activity
             android:label="History"
             android:name=".AddToCart"
+            android:parentActivityName=".AddToCart"
             android:exported="false"/>
         <activity
             android:label="Description"

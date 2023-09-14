@@ -52,8 +52,6 @@ class AdminActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
         binding.proCategory.adapter = adapter
 
-        binding.btnShowData.setOnClickListener { startActivity(Intent(this@AdminActivity,MainActivity::class.java)) }
-
         binding.proCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 selectedCategory = categories[position]
@@ -122,7 +120,7 @@ class AdminActivity : AppCompatActivity() {
 
                     databaseRef.setValue(product)
                         .addOnSuccessListener {
-                            Toast.makeText(this@AdminActivity, "Product Added Successfully...", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@AdminActivity, "Product Added Successfully", Toast.LENGTH_SHORT).show()
                         }
                         .addOnFailureListener { exception ->
                             Toast.makeText(this@AdminActivity, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()

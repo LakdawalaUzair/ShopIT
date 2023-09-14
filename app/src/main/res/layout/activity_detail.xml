@@ -7,15 +7,51 @@
     android:background="@color/white"
     tools:context=".DetailActivity">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="58dp"
+        android:background="@color/main_color"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/btnback"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/baseline_arrow_back_24"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtdesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Description"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -27,11 +63,11 @@
             <ImageView
                 android:id="@+id/proImageDetail"
                 android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:background="@drawable/corner"
-                android:layout_height="250dp"
                 android:backgroundTint="@color/white"
-                android:layout_gravity="center"
                 android:src="@drawable/logo" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,11 +103,13 @@
 
                 <TextView
                     android:id="@+id/txtProNameDetail"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="24dp"
+                    android:layout_marginRight="10dp"
                     android:text="proname"
-                    android:textColor="#94A684"
+                    android:textColor="#FFFFFF"
                     android:textSize="30dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -84,10 +122,10 @@
 
                 <TextView
                     android:id="@+id/txtProPriceDetail"
-                    android:layout_width="109dp"
-                    android:layout_height="29dp"
+                    android:layout_width="150dp"
+                    android:layout_height="35dp"
                     android:text="price"
-                    android:textColor="#94A684"
+                    android:textColor="#FFFFFF"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/atcbtn"
@@ -104,7 +142,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="    Description : "
-                    android:textColor="#94A684"
+                    android:textColor="#FFFFFF"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -120,9 +158,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
-                    android:textColor="#94A684"
-                    android:textSize="20dp"
                     android:text="Des"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/atcbtn"
                     app:layout_constraintEnd_toEndOf="parent"

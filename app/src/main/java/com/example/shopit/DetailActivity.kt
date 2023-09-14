@@ -29,6 +29,12 @@ class DetailActivity : AppCompatActivity() {
                 startActivity(Intent(this, AddToCart::class.java))
 
             }
+            R.id.add -> {
+                startActivity(Intent(this, AdminActivity::class.java))
+            }
+            R.id.lo -> {
+                startActivity(Intent(this, Login::class.java))
+            }
         }
         return true
     }
@@ -37,14 +43,14 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         val proName = intent.getStringExtra("name")
         val proImage =  intent.getStringExtra("img")
         val proDes = intent.getStringExtra("des")
         val proPrice = intent.getStringExtra("price")
+        binding.txtdesc.text = proName
 
-
-        binding.txtProNameDetail.text = proName
         Glide.with(this@DetailActivity).load(proImage).into(binding.proImageDetail)
         binding.txtProPriceDetail.text = proPrice
         binding.txtDesDet.text = proDes
@@ -53,6 +59,9 @@ class DetailActivity : AppCompatActivity() {
             saveDataToDB()
         }
 
+        binding.btnback.setOnClickListener {
+            onBackPressed()
+        }
 
 
 

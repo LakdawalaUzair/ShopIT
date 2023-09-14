@@ -30,6 +30,12 @@ class ListActivity : AppCompatActivity() {
                 startActivity(Intent(this,AddToCart::class.java))
 
             }
+            R.id.add -> {
+                startActivity(Intent(this, AdminActivity::class.java))
+            }
+            R.id.lo -> {
+                startActivity(Intent(this, Login::class.java))
+            }
         }
         return true
     }

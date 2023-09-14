@@ -2,4 +2,6 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="History" android:id="@+id/dots" />
+    <item android:title="ProductAdd" android:id="@+id/add" />
+    <item android:title="Log Out" android:id="@+id/lo" />
 </menu>

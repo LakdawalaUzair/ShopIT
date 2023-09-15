@@ -19,22 +19,23 @@
         <activity
             android:label="Add Products"
             android:name=".AdminActivity"
-            android:parentActivityName=".AdminActivity"
-            android:exported="false" />
-
+            android:exported="false"
+            android:parentActivityName=".AdminActivity" />
         <activity
             android:label="History"
             android:name=".AddToCart"
-            android:parentActivityName=".AddToCart"
-            android:exported="false"/>
+            android:exported="false"
+            android:parentActivityName=".AddToCart" />
         <activity
             android:label="Description"
             android:name=".DetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".DetailActivity"/>
         <activity
-            android:label="Products List"
+            android:label="Product List"
             android:name=".ListActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:parentActivityName=".ListActivity"/>
         <activity
             android:name=".Registration"
             android:exported="false" />
@@ -49,8 +50,9 @@
             </intent-filter>
 
         </activity>
+
         <activity
-            android:label="Catagory's"
+            android:label="Catagory"
             android:name=".MainActivity"
             android:exported="false"/>
     </application>

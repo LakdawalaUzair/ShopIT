@@ -70,7 +70,7 @@ class ListActivity : AppCompatActivity() {
             })
 
         }catch (e : Exception){
-            Log.d("Tufel",e.message.toString())
+            Log.d("name",e.message.toString())
             Toast.makeText(this@ListActivity,e.message.toString(),Toast.LENGTH_SHORT).show()
         }
 

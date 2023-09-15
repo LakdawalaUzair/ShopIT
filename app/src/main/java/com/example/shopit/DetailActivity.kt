@@ -46,8 +46,9 @@ class DetailActivity : AppCompatActivity() {
         val proImage =  intent.getStringExtra("img")
         val proDes = intent.getStringExtra("des")
         val proPrice = intent.getStringExtra("price")
-        binding.txtdesc.text = proName
+        //binding.txtdesc.text = proName
 
+        binding.txtProNameDetail.text = proName
         Glide.with(this@DetailActivity).load(proImage).into(binding.proImageDetail)
         binding.txtProPriceDetail.text = proPrice
         binding.txtDesDet.text = proDes

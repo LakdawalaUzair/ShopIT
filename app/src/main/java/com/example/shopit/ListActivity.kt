@@ -78,7 +78,7 @@ class ListActivity : AppCompatActivity() {
 
     private fun setRecyclerView(proList: MutableList<AddProductModel>) {
         binding.listRecyclerView.layoutManager = LinearLayoutManager(this@ListActivity)
-        binding.listRecyclerView.adapter =  ListAdapter(this@ListActivity, proList )
+        binding.listRecyclerView.adapter =  ListAdapter(this@ListActivity, proList ,"list")
 
     }
 }

@@ -23,7 +23,7 @@ class Registration : AppCompatActivity() {
             signupUser()
         }
         binding.login.setOnClickListener{
-            startActivity(Intent(this,Login::class.java))
+            startActivity(Intent(this,LoginActivity::class.java))
         }
     }
 
@@ -47,7 +47,7 @@ class Registration : AppCompatActivity() {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener {
                 UserModel(name, email, password)
-                startActivity(Intent(this@Registration, Login::class.java))
+                startActivity(Intent(this@Registration, LoginActivity::class.java))
                 //Toast.makeText(this, "Registration Successfull", Toast.LENGTH_SHORT).show()
             }
 

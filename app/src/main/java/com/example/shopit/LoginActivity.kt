@@ -7,7 +7,7 @@ import android.widget.Toast
 import com.example.shopit.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class Login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var binding: ActivityLoginBinding

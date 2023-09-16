@@ -17,32 +17,8 @@
         android:theme="@style/Theme.ShopIT"
         tools:targetApi="31">
         <activity
-            android:label="Add Products"
-            android:name=".AdminActivity"
-            android:exported="false"
-            android:parentActivityName=".AdminActivity" />
-        <activity
-            android:label="History"
-            android:name=".AddToCart"
-            android:exported="false"
-            android:parentActivityName=".AddToCart" />
-        <activity
-            android:label="Description"
-            android:name=".DetailActivity"
-            android:exported="false"
-            android:parentActivityName=".DetailActivity"/>
-        <activity
-            android:label="Product List"
-            android:name=".ListActivity"
-            android:exported="false"
-            android:parentActivityName=".ListActivity"/>
-        <activity
-            android:name=".Registration"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
-            android:exported="true">
-
+            android:name=".SplashActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,11 +26,38 @@
             </intent-filter>
 
         </activity>
-
         <activity
-            android:label="Catagory"
+            android:name=".AdminActivity"
+            android:exported="false"
+            android:label="Add Products"
+            android:parentActivityName=".AdminActivity" />
+        <activity
+            android:name=".AddToCart"
+            android:exported="false"
+            android:label="History"
+            android:parentActivityName=".AddToCart" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false"
+            android:label="Description"
+            android:parentActivityName=".DetailActivity" />
+        <activity
+            android:name=".ListActivity"
+            android:exported="false"
+            android:label="Product List"
+            android:parentActivityName=".ListActivity" />
+        <activity
+            android:name=".Registration"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:label="Catagory" />
     </application>
 
 </manifest>

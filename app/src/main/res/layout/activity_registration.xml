@@ -18,7 +18,7 @@
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_user"
         android:hint="Name"
-        android:maxLength="10"
+        android:maxLength="30"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
         android:textColor="#FFFFFF"

@@ -34,7 +34,7 @@
         <activity
             android:name=".AddToCart"
             android:exported="false"
-            android:label="History"
+            android:label="Add To Cart"
             android:parentActivityName=".AddToCart" />
         <activity
             android:name=".DetailActivity"
@@ -57,7 +57,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="Catagory" />
+            android:label="Catagory's" />
     </application>
 
 </manifest>

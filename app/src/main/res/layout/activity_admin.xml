@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/added"
     tools:context=".AdminActivity">
 
 
@@ -72,10 +73,10 @@
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/proCategory"
-        app:layout_constraintVertical_bias="0.942" />
+        app:layout_constraintVertical_bias="0.782" />
 
     <Spinner
         android:id="@+id/proCategory"
